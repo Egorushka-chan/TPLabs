@@ -1,0 +1,13 @@
+﻿@model Lab5.Models.Table
+@{
+    ViewBag.Title = "Изменение таблицы";
+}
+<h2>Создать таблицу</h2>
+@using (Html.BeginRouteForm("FormTable", new { }, FormMethod.Post))
+{
+    @Html.LabelForModel()
+    @Html.EditorForModel()
+    <input type="submit" value="Добавить" name="myButton"/>
+    <input type="submit" value="Завершить" name="myButton" />
+}
+

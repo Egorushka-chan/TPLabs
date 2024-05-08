@@ -1,0 +1,21 @@
+﻿body {
+}
+
+.tableClass {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    row-gap: 1em;
+}
+
+.label {
+    grid-column:1;
+}
+
+.value {
+    grid-column:2;
+}
+
+.button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}

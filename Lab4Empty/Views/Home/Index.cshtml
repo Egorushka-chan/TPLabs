@@ -1,0 +1,43 @@
+﻿@using Lab4Empty.Models;
+@model Calculator;
+
+<body onload="Begin">
+    <div>
+        <p>Вычислите нужное значение: @ViewBag.RequiedValue при помощи калькулятора</p>
+    </div>
+    <form method="post">
+        @Html.ValidationSummary(false, "", new {@class="text-danger"})
+        <p>
+            Значение 1: @Html.TextBoxFor(x => x.First);
+        </p>
+        <p>
+            Значение 2: @Html.TextBoxFor(x => x.Second);
+        </p>
+        <div>
+            <h3>Выбор операции</h3>
+            @Html.ListBox("Operand", new []{
+            new SelectListItem("+", "+"),
+            new SelectListItem("-", "-"),
+            new SelectListItem("/", "/"),
+            new SelectListItem("*", "*")
+            })
+        </div>
+        <input type="submit" value="Выполнить" name="mybutton"/>
+        <input type="submit" value="Очистить" name="mybutton" />
+    </form>
+    <div>
+        @if (ViewBag.State == CalcState.Correct)
+        {
+            <p>Правильно! Молодец!</p>
+        }
+        else if (ViewBag.State == CalcState.Incorrect)
+        {
+            <p>Неправильно! Ещё раз!</p>
+        }
+    </div>
+    @if (Model != null && ViewBag.State == CalcState.Correct)
+    {
+        @Html.ActionLink("Вывести результат?", "GetResultPage",
+            new {first = Model.LastResult.First, second = Model.LastResult.Second, operand = Model.LastResult.Operand, result = Model.LastResult.Result})
+    }
+</body>

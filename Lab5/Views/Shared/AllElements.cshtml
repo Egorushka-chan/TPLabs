@@ -1,0 +1,37 @@
+﻿@model Lab5.Models.Table[]
+@using Lab5.Models
+@using Lab5.Helpers
+
+<h2>Все таблицы</h2>
+
+@if (ViewData["randomBool"] is true)
+{
+    @Html.CreateList(Model)
+}
+else
+{
+    // В ASP.NET Core не существует внутренних вспомогательных методов, так что их создать тоже не выйдет
+    @foreach (Table table in Model)
+    {
+        <div class="tableClass">
+            <div class="label">
+                <div class="label">ID</div>
+                <div class="label">Наименование</div>
+                <div class="label">Описание</div>
+                <div class="label">Тип</div>
+                <div class="label">Кол-во столбцов</div>
+                <div class="label">Дата создания</div>
+            </div>
+            <div class="value">
+                <div class="value">: @table.Id</div>
+                <div class="value">: @table.Name</div>
+                <div class="value">: @table.Description</div>
+                <div class="value">: @table.Type</div>
+                <div class="value">: @table.CountCollums</div>
+                <div class="value">: @table.CreationTime</div>
+            </div>
+            --------------
+        </div>
+    }
+}
+

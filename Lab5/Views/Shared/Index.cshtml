@@ -1,0 +1,46 @@
+﻿@model Lab5.Models.Table
+@{
+    ViewBag.Title = "Просмотр таблицы";
+}
+<h2>Просмотр таблицы</h2>
+<div class="tableClass">
+    <div class="label">
+        <div>@Html.LabelFor(x => x.Id, new {@class="label"})</div>
+        <div>@Html.LabelFor(x => x.Name, new {@class="label"})</div>
+        <div>@Html.LabelFor(x => x.Description, new {@class="label"})</div>
+        <div>@Html.LabelFor(x => x.Type, new {@class="label"})</div>
+        <div>@Html.LabelFor(x => x.CountCollums, new {@class="label"})</div>
+        <div>@Html.LabelFor(x => x.CreationTime, new {@class="label"})</div>
+    </div>
+    <div class="value">
+        <div>: @Html.DisplayFor(x => x.Id, new {@class="value"})</div>
+        <div>: @Html.DisplayFor(x => x.Name, new {@class="value"})</div>
+        <div>: @Html.DisplayFor(x => x.Description, new {@class="value"})</div>
+        <div>: @Html.DisplayFor(x => x.Type, new {@class="value"})</div>
+        <div>: @Html.DisplayFor(x => x.CountCollums, new {@class="value"})</div>
+        <div>: @Html.DisplayFor(x => x.CreationTime, new {@class="value"})</div>
+    </div>
+    <div class="button">
+        Текущая таблица @ViewBag.Current из @ViewBag.Length
+    </div>
+</div>
+<div class="tableClass">
+    @if (ViewBag.Current > 1)
+    {
+        <div class="label">
+            |@Html.ActionLink("Назад", "GetTablePrevious")|
+        </div>
+    }
+    @if (ViewBag.Current < ViewBag.Length)
+    {
+        <div class="value">
+            |@Html.ActionLink("Вперёд", "GetTableFuther")|
+        </div>
+    }
+</div>
+<div>
+    Вывести все таблицы: @Html.ActionLink("Тык", "GetAllTables")
+</div>
+
+
+
