@@ -1,0 +1,13 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Ошибка";
+}
+
+<h2>Число аргументов меньше 2!</h2>
+<h3>
+    Контроллер: @Model.ControllerName; Метод: @Model.ActionName
+</h3>
+<h3>
+    @(((ArgumentOutOfRangeException)Model.Exception).Message)
+</h3>
+

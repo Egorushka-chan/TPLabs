@@ -1,0 +1,36 @@
+﻿<main>
+    <div>
+        <form method="post">
+            <div>
+                <label>
+                    ID: <input type="number" name="id"/>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    Имя: <input type="text" name="name" />
+                </label>
+            </div>
+            
+            <div>
+                <label>
+                    Тип: @Html.TextBox("type")
+                </label>
+            </div>
+           
+            <div>
+                <label>
+                    Строки: <input type="number" name="rows"/>
+                </label>
+            </div>
+            
+            <div>
+                <label>
+                    В строю: @Html.CheckBox("active")
+                </label>
+            </div>
+            <input type="submit" value="Добавить"/>
+        </form>
+    </div>
+</main>

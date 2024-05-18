@@ -1,0 +1,29 @@
+﻿@model string[]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ошибка</title>
+</head>
+<body>
+    <h1>Ошибка!</h1>
+    <h2>Ошибка при конвертации типа аргумента</h2>
+    <h3>Message</h3>
+    <div>
+        @{
+            @Model[0]
+        }
+    </div>
+    <h3>StackTrace</h3>
+    <div>
+        @{
+            @Model[1]
+        }
+    </div>
+    <h3>Source</h3>
+    <div>
+        @{
+            @Model[2]
+    }
+</div>
+</body>
+</html>
