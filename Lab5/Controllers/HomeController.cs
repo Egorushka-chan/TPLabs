@@ -29,6 +29,7 @@ namespace Lab5.Controllers
             }
         }
 
+        // Вход в приложение
         public IActionResult Index() 
         {
             return View("Editor", new Table());
